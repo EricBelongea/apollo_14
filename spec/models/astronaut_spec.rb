@@ -30,4 +30,18 @@ describe Astronaut, type: :model do
   it "Will return the missions in alphabetical order" do
     expect(Astronaut.current_missions).to eq(["Apollo 14", "Capricorn 4", "Gemini 7"])
   end
+
+  it "Will return the amount of time that an astronaut is in space" do
+    @astronaut1.missions << @apollo14
+    expect(@astronaut1.time_in_space).to eq(@apollo14.time_in_space)
+    
+    @astronaut1.missions << @capricorn4
+    expect(@astronaut1.time_in_space).to eq(@apollo14.time_in_space + @capricorn4.time_in_space)
+    
+    @astronaut2.missions << @gemini7
+    expect(@astronaut2.time_in_space).to eq(@gemini7.time_in_space)
+    
+    expect(@astronaut3.time_in_space).to eq(0)
+    expect(@astronaut4.time_in_space).to eq(0)
+  end
 end

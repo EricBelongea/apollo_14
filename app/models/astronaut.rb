@@ -10,4 +10,12 @@ class Astronaut < ApplicationRecord
   def self.current_missions
     Mission.order(title: :asc).pluck(:title)
   end
+
+  def time_in_space
+    time = 0
+    missions.each do |mission|
+      time += mission.time_in_space
+    end
+    time
+  end
 end

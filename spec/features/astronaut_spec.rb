@@ -32,4 +32,13 @@ RSpec.describe Astronaut do
     expect("Apollo 14").to appear_before("Capricorn 4")
     expect("Capricorn 4").to appear_before("Gemini 7")
   end
+
+  it "Will show astronaut time in space" do
+    @astronaut1.missions << @apollo14
+
+    visit "/astronauts"
+
+    expect(page).to have_content("#{@astronaut1.name} #{@astronaut1.age} #{@astronaut1.job} #{@astronaut1.time_in_space}")
+    # expect(page).to have_content("Niel Armstring 37 Commander 123 Days")
+  end
 end
