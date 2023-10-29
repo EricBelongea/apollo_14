@@ -5,3 +5,8 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+astronaut1 = Astronaut.create(name: "Niel Armstring", age: 37, job: "Commander")
+astronaut2 = Astronaut.create(name: "Niel degrass tyson", age: 42, job: "Astrophysist")
+astronaut3 = Astronaut.create(name: "Mom", age: 57, job: "Interplanetary Biology")
+astronaut4 = Astronaut.create(name: "Dad", age: 62, job: "Computer Science")
