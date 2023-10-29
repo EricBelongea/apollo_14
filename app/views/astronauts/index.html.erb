@@ -7,3 +7,8 @@
 <% end %>
 
 <h3>Average Astro Age: <%= @age %></h3>
+
+<h3>Missions</h3>
+<% Astronaut.current_missions.each do |mission| %>
+<%= mission %> <br>
+<% end %>

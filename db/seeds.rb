@@ -10,3 +10,7 @@ astronaut1 = Astronaut.create(name: "Niel Armstring", age: 37, job: "Commander")
 astronaut2 = Astronaut.create(name: "Niel degrass tyson", age: 42, job: "Astrophysist")
 astronaut3 = Astronaut.create(name: "Mom", age: 57, job: "Interplanetary Biology")
 astronaut4 = Astronaut.create(name: "Dad", age: 62, job: "Computer Science")
+
+apollo14 = Mission.create(title: "Apollo 14", time_in_space: 123)
+capricorn4 = Mission.create(title: "Capricorn 4", time_in_space: 453 )
+gemini7 = Mission.create(title: "Gemini 7", time_in_space: 777)
