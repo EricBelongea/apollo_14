@@ -1,0 +1,10 @@
+<h1><%= @astronaut.name %></h1>
+
+
+
+<div id="missions">
+  <h3>Missions:</h3>
+  <% @astronaut.missions.each do |mission| %>
+    <p><%= mission.title %></p> <br>
+  <% end %>
+</div>

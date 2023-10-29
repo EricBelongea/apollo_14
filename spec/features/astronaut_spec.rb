@@ -39,6 +39,35 @@ RSpec.describe Astronaut do
     visit "/astronauts"
 
     expect(page).to have_content("#{@astronaut1.name} #{@astronaut1.age} #{@astronaut1.job} #{@astronaut1.time_in_space}")
+    # Two ways
     # expect(page).to have_content("Niel Armstring 37 Commander 123 Days")
+  end
+
+  # Extensions
+
+  it "Will create a show page for name and missions" do
+    @astronaut1.missions << @apollo14
+    @astronaut1.missions << @capricorn4
+
+    visit "/astronauts/#{@astronaut1.id}"
+
+    expect(page).to have_content("#{@astronaut1.name}")
+    expect(page).to have_content("Missions:")
+    
+    within("div#missions") do
+      expect(page).to have_content("#{@apollo14.title}")
+      expect(page).to have_content("#{@capricorn4.title}")
+    end
+    
+
+    @astronaut2.missions << @gemini7
+
+    visit "/astronauts/#{@astronaut2.id}"
+
+    expect(page).to have_content("#{@astronaut2.name}")
+
+    within("div#missions") do
+      expect(page).to have_content(@gemini7.title)
+    end
   end
 end

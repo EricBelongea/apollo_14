@@ -1,7 +1,7 @@
 <h1>Our Space Cowboys</h1>
 
 <% @astronauts.each do |astronaut| %>
-<%= astronaut.name %>
+<%= link_to "#{astronaut.name}", "/astronauts/#{astronaut.id}" %>
 <%= astronaut.age %>
 <%= astronaut.job %> 
 <%= "#{ astronaut.time_in_space} Days" %><br>
