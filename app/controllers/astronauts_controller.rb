@@ -5,5 +5,8 @@ class AstronautsController < ApplicationController
 
   def show
     @astronaut = Astronaut.find(params[:id])
+    if params[:added_mission] != nil
+      @astronaut.add_mission(params[:added_mission])
+    end
   end
 end

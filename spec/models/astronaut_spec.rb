@@ -44,4 +44,19 @@ describe Astronaut, type: :model do
     expect(@astronaut3.time_in_space).to eq(0)
     expect(@astronaut4.time_in_space).to eq(0)
   end
+
+  it 'Will add missions based on search' do
+    expect(@astronaut1.missions).to eq([])
+    @astronaut1.missions << @apollo14
+    expect(@astronaut1.missions).to eq([@apollo14])
+
+    expect(@astronaut1.add_mission(@capricorn4)).to eq([@apollo14, @capricorn4])
+
+
+    expect(@astronaut4.missions).to eq([])
+    @astronaut4.add_mission(@apollo14)
+    @astronaut4.add_mission(@capricorn4)
+    @astronaut4.add_mission(@gemini7)
+    expect(@astronaut4.missions).to eq([@apollo14, @capricorn4, @gemini7])
+  end
 end

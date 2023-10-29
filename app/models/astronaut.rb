@@ -18,4 +18,8 @@ class Astronaut < ApplicationRecord
     end
     time
   end
+
+  def add_mission(mission_id)
+    missions << Mission.find_by(id: mission_id)
+  end
 end

@@ -3,5 +3,5 @@ Rails.application.routes.draw do
 
   get "/astronauts", to: "astronauts#index"
   get "/astronauts/:id", to: "astronauts#show"
-  
+  patch "/astronauts/:id", to: "astronauts#update"
 end

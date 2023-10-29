@@ -70,4 +70,26 @@ RSpec.describe Astronaut do
       expect(page).to have_content(@gemini7.title)
     end
   end
+
+  it "can add missions to astronauts" do
+    visit "/astronauts/#{@astronaut4.id}"
+
+    expect(page).to have_content(@astronaut4.name)
+    expect(@astronaut4.missions).to eq([])
+    expect(page).to have_content("Missions:")
+    expect(page).to_not have_content("#{@apollo14.title}")
+    expect(page).to_not have_content("#{@capricorn4.title}")
+    expect(page).to_not have_content("#{@gemini7.title}")
+
+    expect(page).to have_content("Enter mission id")
+    expect(page).to have_button("Add Mission")
+
+    fill_in(:added_mission, with: "#{@apollo14.id}")
+    # save_and_open_page
+    expect(page).to_not have_content("#{@apollo14.title}")
+    click_button("Add Mission")
+
+    expect(current_path).to eq("/astronauts/#{@astronaut4.id}")
+    expect(page).to have_content("#{@apollo14.title}")
+  end
 end

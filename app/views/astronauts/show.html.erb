@@ -5,6 +5,13 @@
 <div id="missions">
   <h3>Missions:</h3>
   <% @astronaut.missions.each do |mission| %>
-    <p><%= mission.title %></p> <br>
+    <%= mission.title %><br>
   <% end %>
 </div>
+
+<h3>Add a Mission</h3>
+<%= form_with url: "/astronauts/#{@astronaut.id}", method: :get, local: :true do |f| %>
+  <%= f.label "Enter Mission ID" %>
+  <%= f.text_field :added_mission %>
+  <%= f.submit "Add Mission" %>
+<% end %>
